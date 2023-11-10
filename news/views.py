@@ -36,7 +36,7 @@ class NewsList(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['time_now'] = datetime.utcnow()
-        # context['autor'] = Post.autor
+        # context['autor'] = Post.autor.user.username
         return context
 
 class PostDetail(DetailView):
