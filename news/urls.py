@@ -5,13 +5,13 @@ from .views import (
                      PostCreate, NewsCreate,
                      PostEdit, NewsEdit,
                      PostDelete, NewsDelete,
-                     NewsSearch,
+                     NewsSearch, subscriptions
 )
 
 
 urlpatterns = [
 
-    path('', PostList.as_view(), name='post_list'),
+    # path('', PostList.as_view(), name='post_list'),
     path('news/', NewsList.as_view(), name='news_list'),
     path('news/create/', NewsCreate.as_view(), name='news_create'),
     path('news/<int:pk>/', NewsDetail.as_view(), name='news_detail'),
@@ -23,4 +23,5 @@ urlpatterns = [
     path('post/<int:pk>', PostDetail.as_view(), name='post_detail'),
     path('post/<int:pk>/edit/', PostEdit.as_view(), name='post_edit'),
     path('post/<int:pk>/delete/', PostDelete.as_view(), name='post_delete'),
+    path('subscriptions/', subscriptions, name='subscriptions'),
 ]

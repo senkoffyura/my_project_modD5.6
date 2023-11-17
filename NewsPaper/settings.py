@@ -24,6 +24,22 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_FORMS = {"signup": "accounts.forms.CustomSignupForm"}
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "mstisha.zlat@yandex.ru"
+EMAIL_HOST_PASSWORD = "dbpagbckvaitdppg"
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+
+DEFAULT_FROM_EMAIL = "mstisha.zlat@yandex.ru"
+SERVER_EMAIL = "mstisha.zlat@yandex.ru"
+
+SITE_URL = 'http://127.0.0.1:8000'
+
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
+APSCHEDULER_RUN_NOW_TIMEOUT = 25  # Seconds
 
 # Application definition
 
@@ -43,7 +59,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.yandex',
-]
+    'django_apscheduler',
+ ]
 
 SITE_ID = 1
 
@@ -141,4 +158,4 @@ STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
 
-LOGIN_REDIRECT_URL = "/posts"
+LOGIN_REDIRECT_URL = "/post"

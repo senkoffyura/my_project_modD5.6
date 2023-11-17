@@ -1,4 +1,4 @@
-from django.db import models  # импорт
+from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Sum
 from django.urls import reverse
@@ -59,7 +59,10 @@ class Post(models.Model):
         return prev
 
     def get_absolute_url(self):
-        return reverse('post_detail', args=[str(self.id)])
+        return f'/news/{self.id}'
+
+    # def get_absolute_url(self):
+    #     return reverse('post_detail', args=[str(self.id)])
 
     def __str__(self):
         return f'{self.heading.title()}: {self.article_text[:20]}'
@@ -84,3 +87,15 @@ class Comment(models.Model):
     def dislike(self):
         self.rating -= 1
         self.save()
+
+class Subscription(models.Model):
+    user = models.ForeignKey(
+        to=User,
+        on_delete=models.CASCADE,
+        related_name='subscriptions',
+    )
+    category = models.ForeignKey(
+        to='Category',
+        on_delete=models.CASCADE,
+        related_name='subscriptions',
+    )
