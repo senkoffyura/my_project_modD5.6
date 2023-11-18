@@ -1,19 +1,18 @@
 import datetime
 import logging
-from typing import Set, Any
 
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.cron import CronTrigger
 from django.conf import settings
-from django.contrib.auth.models import User
-from django.core.mail import mail_managers, EmailMultiAlternatives
+
+from django.core.mail import EmailMultiAlternatives
 from django.core.management.base import BaseCommand
 from django.template.loader import render_to_string
 from django_apscheduler import util
 from django_apscheduler.jobstores import DjangoJobStore
 from django_apscheduler.models import DjangoJobExecution
 
-from news.models import Post, Subscription, PostCategory
+from news.models import Post, Subscription
 
 logger = logging.getLogger(__name__)
 
@@ -42,9 +41,6 @@ def my_job():
     msg.attach_alternative(html_content, "text/html")
     msg.send()
 
-    # print(subscribers)
-    # print(categories)
-
 
 
 @util.close_old_connections
@@ -61,7 +57,7 @@ class Command(BaseCommand):
 
         scheduler.add_job(
             my_job,
-            trigger=CronTrigger(second='*/10'),
+            trigger=CronTrigger(day_of_week="fri", hour="18", minute="00"),
             id="my_job",  # The `id` assigned to each job MUST be unique
             max_instances=1,
             replace_existing=True,

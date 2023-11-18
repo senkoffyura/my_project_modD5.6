@@ -4,7 +4,7 @@ from django.dispatch import receiver
 from django.contrib.auth.models import User
 from django.core.mail import EmailMultiAlternatives
 
-from .models import PostCategory, Subscription
+from .models import PostCategory
 
 
 
@@ -18,18 +18,8 @@ def postcategory_created(sender, instance,pk_set, **kwargs):
 
         for category in catigories:
             subscribers += User.objects.filter(subscriptions__category=category).values_list('email', flat=True)
-        #
-        # print(subscribers)
-    # if not created:
-    #     return
-    #     emails = User.objects.filter(
-    #     subscriptions__category=category
-    #     ).values_list('email', flat=True)
-    #
-        # emails = User.objects.filter(
-        # subscriptions__category=category
-        # ).values_list('email', flat=True)
-        #
+
+
         subject = f'Новая публикаци в категории {instance.category}'
 
         text_content = (
