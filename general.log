@@ -1,0 +1,46 @@
+2024-01-09 12:15:20,377 INFO autoreload Watching for file changes with StatReloader
+2024-01-09 12:15:28,617 WARNING log Not Found: /
+2024-01-09 12:15:28,677 WARNING basehttp "GET / HTTP/1.1" 404 4372
+2024-01-09 17:11:57,889 INFO autoreload Watching for file changes with StatReloader
+2024-01-09 17:12:04,340 WARNING log Not Found: /
+2024-01-09 17:12:04,388 WARNING basehttp "GET / HTTP/1.1" 404 4372
+2024-01-09 17:12:34,815 INFO basehttp "GET /post/ HTTP/1.1" 200 8600
+2024-01-09 17:12:48,046 INFO basehttp "GET /post/create/ HTTP/1.1" 200 3350
+2024-01-09 17:13:04,232 INFO basehttp "POST /post/create/ HTTP/1.1" 302 0
+2024-01-09 17:13:04,262 INFO basehttp "GET /news/33 HTTP/1.1" 301 0
+2024-01-09 17:13:04,281 INFO basehttp "GET /news/33/ HTTP/1.1" 200 2442
+2024-01-09 17:19:58,816 INFO autoreload C:\ProjectMod2_4\NewsPaper\NewsPaper\settings.py changed, reloading.
+2024-01-09 19:02:09,545 INFO autoreload Watching for file changes with StatReloader
+2024-01-09 19:02:30,967 WARNING log Not Found: /
+2024-01-09 19:02:31,032 WARNING basehttp "GET / HTTP/1.1" 404 179
+2024-01-09 19:03:17,400 INFO basehttp "GET /post/ HTTP/1.1" 200 9019
+2024-01-09 19:03:52,572 INFO basehttp "GET /post/1/edit/ HTTP/1.1" 200 3436
+2024-01-09 19:03:59,338 INFO basehttp "POST /post/1/edit/ HTTP/1.1" 302 0
+2024-01-09 19:03:59,365 INFO basehttp "GET /news/1 HTTP/1.1" 301 0
+2024-01-09 19:03:59,385 INFO basehttp "GET /news/1/ HTTP/1.1" 200 2489
+2024-01-09 19:06:05,612 INFO basehttp "GET /news/search HTTP/1.1" 301 0
+2024-01-09 19:06:05,640 INFO basehttp "GET /news/search/ HTTP/1.1" 200 4301
+2024-01-09 19:06:13,509 INFO basehttp "GET /news/search/?heading__icontains=&category=1&added_after= HTTP/1.1" 200 3887
+2024-01-09 19:06:21,969 INFO basehttp "GET /news/search/?heading__icontains=&category=2&added_after= HTTP/1.1" 200 4080
+2024-01-09 19:06:24,312 INFO basehttp "GET /news/search/?heading__icontains=&category=3&added_after= HTTP/1.1" 200 4364
+2024-01-09 19:06:26,629 INFO basehttp "GET /news/search/?heading__icontains=&category=4&added_after= HTTP/1.1" 200 4331
+2024-01-09 19:10:07,561 INFO autoreload C:\ProjectMod2_4\NewsPaper\NewsPaper\settings.py changed, reloading.
+2024-01-09 19:10:08,494 INFO autoreload Watching for file changes with StatReloader
+2024-01-09 19:10:11,164 INFO basehttp "GET /news/search/?heading__icontains=&category=1&added_after= HTTP/1.1" 200 3887
+2024-01-09 19:10:48,639 INFO basehttp "GET /news/ HTTP/1.1" 200 7249
+2024-01-09 19:11:08,586 INFO basehttp "GET /news/1/ HTTP/1.1" 200 2489
+2024-01-09 19:12:18,815 INFO autoreload C:\ProjectMod2_4\NewsPaper\NewsPaper\settings.py changed, reloading.
+2024-01-09 19:12:19,643 INFO autoreload Watching for file changes with StatReloader
+2024-01-09 19:12:51,537 INFO basehttp "GET /news/2 HTTP/1.1" 301 0
+2024-01-09 19:12:51,566 INFO basehttp "GET /news/2/ HTTP/1.1" 200 2546
+2024-01-09 23:50:23,250 INFO autoreload Watching for file changes with StatReloader
+2024-01-09 23:50:30,501 WARNING basehttp "GET / HTTP/1.1" 404 179
+2024-01-09 23:50:46,238 INFO basehttp "GET /news/ HTTP/1.1" 200 7249
+2024-01-09 23:51:11,695 WARNING basehttp "GET /news/sea HTTP/1.1" 404 179
+2024-01-09 23:51:32,956 INFO basehttp "GET /news/search/ HTTP/1.1" 200 4301
+2024-01-09 23:51:36,621 INFO basehttp "GET /news/search/?heading__icontains=&added_after= HTTP/1.1" 200 4392
+2024-01-09 23:51:37,726 INFO basehttp "GET /news/search/?heading__icontains=&added_after= HTTP/1.1" 200 4392
+2024-01-09 23:51:39,057 INFO basehttp "GET /news/search/?heading__icontains=&added_after= HTTP/1.1" 200 4392
+2024-01-09 23:51:42,499 INFO basehttp "GET /news/search/?heading__icontains=&category=2&added_after= HTTP/1.1" 200 4080
+2024-01-09 23:51:44,893 INFO basehttp "GET /news/search/?heading__icontains=&category=3&added_after= HTTP/1.1" 200 4364
+2024-01-10 00:01:26,955 INFO autoreload C:\ProjectMod2_4\NewsPaper\NewsPaper\settings.py changed, reloading.

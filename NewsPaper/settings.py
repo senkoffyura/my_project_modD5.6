@@ -16,6 +16,146 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+ADMINS = [
+    ('Jurii', 'senkoff.yura@yandex.ru'),
+    ('Misha', 'mstisha.zlat@yandex.ru'),
+]
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'my_format_debug': {
+            'format': '{asctime} {levelname} {message}',
+            'style': '{',
+        },
+
+        'my_format_warning': {
+            'format': '{asctime} {levelname} {message} {pathname}',
+            'style': '{',
+        },
+
+        'my_format_error_critical': {
+            'format': '{asctime} {levelname} {message} {pathname} {exc_info}',
+            'style': '{',
+        },
+
+        'my_format_general_info': {
+            'format': '{asctime} {levelname} {module} {message}',
+            'style': '{',
+        },
+    },
+
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        },
+    },
+
+    'handlers': {
+        'console_debug': {
+            'level': 'DEBUG', # DEBUG
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'my_format_debug'
+        },
+
+        'console_warning': {
+            'level': 'WARNING',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'my_format_warning'
+        },
+
+        'console_error_critical': {
+            'level': 'ERROR',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'my_format_error_critical'
+        },
+
+        'file_general_info': {
+            'level': 'INFO', # INFO
+            'filters': ['require_debug_false'],
+            'class': 'logging.FileHandler',
+            'formatter': 'my_format_general_info',
+            'filename': 'general.log',
+        },
+
+        'file_errors': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'formatter': 'my_format_error_critical',
+            'filename': 'errors.log',
+        },
+
+        'file_security': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'formatter': 'my_format_general_info',
+            'filename': 'security.log',
+        },
+
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler',
+            'formatter': 'my_format_warning',
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console_debug',
+                         'console_warning',
+                         'console_error_critical',
+                         'file_general_info',
+                         ],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+
+        'django.request': {
+            'handlers': ['file_errors',
+                         'mail_admins',
+                         ],
+            'level': 'INFO',
+            'propagate': True,
+        },
+
+        'django.server': {
+            'handlers': ['file_errors',
+                         'mail_admins',
+                         ],
+            'level': 'INFO',
+            'propagate': True,
+        },
+
+        'django.template': {
+            'handlers': ['file_errors'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+
+        'django.db.backends': {
+            'handlers': ['file_errors'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+
+        'django.security': {
+            'handlers': ['file_security'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+
+    }
+}
+
+
+
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
@@ -174,3 +314,4 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_REDIRECT_URL = "/post"
+
